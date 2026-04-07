@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>John Álex | ADS Student & Founder @ Nexus Tecnologia</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+    <style>
+
+        :root {
+            /* Palette de Cores */
+            --bg-black: #020203;
+            --bg-deep: #0a0a0c;
+            --primary-violet: #8a2be2;
+            --primary-light: #b366ff;
+            --accent-cyan: #00d4ff;
+            --text-pure: #ffffff;
+            --text-gray: #949494;
+            --text-dim: #5c5c5c;
+
+            /* Efeitos de Vidro */
+            --glass-bg: rgba(255, 255, 255, 0.02);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --glass-border-bright: rgba(255, 255, 255, 0.15);
+
+            /* Sombras e Brilhos */
+            --glow-violet: 0 0 30px rgba(138, 43, 226, 0.3);
+            --glow-cyan: 0 0 30px rgba(0, 212, 255, 0.2);
+
+            /* Transições */
+            --transition-smooth: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            --transition-fast: all 0.3s ease;
+        }
+
+        /* 0. RESET E BASE */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            outline: none;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            background-color: var(--bg-black);
+            color: var(--text-pure);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* 1. FUNDO ANIMADO (STARS & NEBULA) */
+        .bg-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: radial-gradient(circle at 50% 50%, #0f0c29 0%, #000000 100%);
+            overflow: hidden;
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: twinkle var(--duration) infinite ease-in-out;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+
+        .nebula-top {
+            position: absolute;
+            top: -20%;
+            right: -10%;
+            width: 70%;
+            height: 70%;
+            background: radial-gradient(circle, rgba(138, 43, 226, 0.15) 0%, transparent 70%);
+            filter: blur(100px);
+        }
+
+        .nebula-bottom {
+            position: absolute;
+            bottom: -20%;
+            left: -10%;
+            width: 70%;
+            height: 70%;
+            background: radial-gradient(circle, rgba(0, 212, 255, 0.1) 0%, transparent 70%);
+            filter: blur(100px);
+        }
+
+        /* 2. TIPOGRAFIA AVANÇADA */
+        h1, h2, h3 {
+            font-family: 'Syne', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #fff 30%, var(--primary-violet) 70%, var(--accent-cyan) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 200% auto;
+            animation: shineText 5s linear infinite;
+        }
+
+        @keyframes shineText {
+            to { background-position: 200% center; }
+        }
+
+        /* 3. SCROLLBAR CUSTOM */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: var(--bg-black); }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(var(--primary-violet), var(--accent-cyan));
+            border-radius: 10px;
+        }
+
+        /* 4. NAVEGAÇÃO E LOGO */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 0;
+            z-index: 1000;
+            background: rgba(2, 2, 3, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            font-size: 1.2rem;
+            color: var(--text-pure);
+            text-decoration: none;
+            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-logo .dot {
+            width: 8px;
+            height: 8px;
+            background: var(--primary-violet);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--primary-violet);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-gray);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: var(--transition-fast);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-violet);
+        }
+
+        /* 5. HERO SECTION */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding-top: 80px;
+        }
+
+        .hero-inner {
+            text-align: center;
+            z-index: 10;
+        }
+
+        .badge-dev {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border-bright);
+            padding: 8px 20px;
+            border-radius: 100px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            color: var(--primary-light);
+            margin-bottom: 2rem;
+            display: inline-block;
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-title {
+            font-size: clamp(3.5rem, 10vw, 7.5rem);
+            line-height: 0.9;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-desc {
+            color: var(--text-gray);
+            font-size: 1.2rem;
+            max-width: 650px;
+            margin: 0 auto 3rem auto;
+            font-weight: 300;
+        }
+
+        /* 6. BOTÕES PREMIUM */
+        .btn-nexus {
+            position: relative;
+            padding: 18px 45px;
+            background: var(--text-pure);
+            color: var(--bg-black);
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            overflow: hidden;
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            transition: var(--transition-smooth);
+        }
+
+        .btn-nexus::before {
+            content: "";
+            position: absolute;
+            top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: 0.5s;
+        }
+
+        .btn-nexus:hover::before { left: 100%; }
+
+        .btn-nexus:hover {
+            transform: translateY(-5px);
+            background: var(--primary-violet);
+            color: white;
+            box-shadow: 0 15px 30px rgba(138, 43, 226, 0.4);
+        }
+
+        /* 7. SEÇÃO DE PROJETOS */
+        .section-wrap {
+            padding: 5rem 0;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-header {
+            margin-bottom: 5rem;
+        }
+
+        .section-header .line {
+            width: 60px;
+            height: 4px;
+            background: var(--primary-violet);
+            margin-bottom: 1.5rem;
+        }
+
+        .section-header h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 4rem;
+        }
+
+        /* CARD DE PROJETO ESTILO AGÊNCIA */
+        .card-project {
+            position: relative;
+            border-radius: 30px;
+            overflow: hidden;
+            background: var(--bg-deep);
+            border: 1px solid var(--glass-border);
+            transition: var(--transition-smooth);
+        }
+
+        .card-project:hover {
+            border-color: var(--primary-light);
+            transform: scale(1.02);
+            box-shadow: var(--glow-violet);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 450px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(40%);
+            transition: var(--transition-smooth);
+        }
+
+        .card-project:hover .card-image img {
+            filter: grayscale(0%);
+            transform: scale(1.1);
+        }
+
+        .card-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to top, var(--bg-deep) 10%, transparent 100%);
+        }
+
+        .card-body {
+            padding: 3rem;
+            position: relative;
+            margin-top: -100px;
+        }
+
+        .project-category {
+            font-size: 0.7rem;
+            color: var(--primary-light);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .project-title {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-description {
+            color: var(--text-gray);
+            font-size: 1rem;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .project-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .tech-stack {
+            display: flex;
+            gap: 15px;
+            color: var(--text-dim);
+            font-size: 1.2rem;
+        }
+
+        .btn-circle {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 1px solid var(--glass-border-bright);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition-fast);
+        }
+
+        .btn-circle:hover {
+            background: var(--primary-violet);
+            border-color: var(--primary-violet);
+            transform: rotate(-45deg);
+        }
+
+        /* ESTILO PARA BOTÃO DE DEMO SOLICITADA */
+        .btn-demo-request {
+            padding: 10px 20px;
+            border: 1px solid var(--primary-violet);
+            border-radius: 100px;
+            color: var(--text-pure);
+            text-decoration: none;
+            font-size: 0.75rem;
+            font-weight: 700;
+            transition: var(--transition-fast);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-demo-request:hover {
+            background: var(--primary-violet);
+            box-shadow: 0 0 15px var(--primary-violet);
+        }
+
+        /* 8. EXPERIÊNCIA E SKILLS */
+        .skills-section {
+            margin-top: 5rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+            background: var(--glass-bg);
+            padding: 5rem;
+            border-radius: 40px;
+            border: 1px solid var(--glass-border);
+        }
+
+        .skill-item {
+            margin-bottom: 2.5rem;
+        }
+
+        .skill-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .skill-bar {
+            width: 100%;
+            height: 6px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            position: absolute;
+            top: 0; left: 0; height: 100%;
+            background: linear-gradient(90deg, var(--primary-violet), var(--accent-cyan));
+            border-radius: 10px;
+            width: 0;
+            transition: width 2s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+        }
+
+        /* 9. DIFERENCIAIS SECTION */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+            margin-top: 5rem;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 2rem;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            transition: var(--transition-fast);
+        }
+
+        .feature-item:hover {
+            background: rgba(255,255,255,0.05);
+            transform: translateY(-10px);
+        }
+
+        .feature-item i {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--primary-light), var(--accent-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* 10. FOOTER E CONTATO */
+        footer {
+            padding: 8rem 0 4rem 0;
+            background: var(--bg-deep);
+            margin-top: 10rem;
+            border-top: 1px solid var(--glass-border);
+        }
+
+        .footer-cta {
+            text-align: center;
+            margin-bottom: 6rem;
+        }
+
+        .footer-cta h2 {
+            font-size: 4rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        .icon-box {
+            font-size: 2rem;
+            color: var(--text-gray);
+            transition: var(--transition-fast);
+        }
+
+        .icon-box:hover {
+            color: var(--primary-violet);
+            transform: translateY(-10px);
+        }
+
+        .copyright-text {
+            text-align: center;
+            color: var(--text-dim);
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 992px) {
+            .projects-container { grid-template-columns: 1fr; }
+            .skills-section { grid-template-columns: 1fr; }
+            .hero-title { font-size: 4rem; }
+        }
+
+        @media (max-width: 600px) {
+            .nav-links { display: none; }
+            .footer-cta h2 { font-size: 2.5rem; }
+            .card-body { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="bg-wrapper">
+    <div class="nebula-top"></div>
+    <div class="nebula-bottom"></div>
+    <div id="star-field"></div>
+</div>
+
+<nav>
+    <div class="nav-content">
+        <a href="#" class="nav-logo">
+            <div class="dot"></div>
+            NEXUS TECNOLOGIA
+        </a>
+        <div class="nav-links">
+            <a href="#projetos">Projetos</a>
+            <a href="#sobre">Sobre</a>
+            <a href="#contato">Contato</a>
+        </div>
+    </div>
+</nav>
+
+<section class="hero">
+    <div class="hero-inner">
+        <div class="badge-dev animate__animated animate__fadeInDown">ADS STUDENT • FOUNDER @ NEXUS</div>
+        <h1 class="hero-title animate__animated animate__fadeInUp">
+            <span class="gradient-text">JOHN ÁLEX</span>
+        </h1>
+        <p class="hero-desc animate__animated animate__fadeInUp" style="animation-delay: 0.5s;">
+            Estudante de ADS com foco em desenvolvimento de sistemas.
+            Atualmente no Suporte da Redesoft, transformando o aprendizado prático em soluções robustas para automação e gestão comercial."
+        </p>
+        <div class="animate__animated animate__fadeInUp" style="animation-delay: 0.8s;">
+            <a href="#projetos" class="btn-nexus">
+                EXPLORAR SOLUÇÕES <i class="fas fa-chevron-right"></i>
+            </a>
+        </div>
+    </div>
+</section>
+
+<section class="section-wrap reveal">
+    <div class="feature-grid">
+        <div class="feature-item">
+            <i class="fas fa-layer-group"></i>
+            <h3>Multi-Tenancy</h3>
+            <p style="color: var(--text-gray);">Arquitetura focada em isolamento de dados, permitindo servir centenas de empresas em uma única infraestrutura segura.</p>
+        </div>
+        <div class="feature-item">
+            <i class="fas fa-cloud-upload-alt"></i>
+            <h3>Cloud Native</h3>
+            <p style="color: var(--text-gray);">Deploy contínuo via Railway com integração PostgreSQL, garantindo alta disponibilidade e backups automatizados.</p>
+        </div>
+        <div class="feature-item">
+            <i class="fas fa-rocket"></i>
+            <h3>Performance</h3>
+            <p style="color: var(--text-gray);">Interfaces JavaFX otimizadas para hardware comercial, com processamento assíncrono e resposta instantânea.</p>
+        </div>
+    </div>
+</section>
+
+<section class="section-wrap" id="projetos">
+    <div class="section-header reveal">
+        <div class="line"></div>
+        <h2>Projetos Atuais</h2>
+        <p style="color: var(--text-gray);">Software robusto para desafios complexos de varejo e entretenimento.</p>
+    </div>
+
+    <div class="projects-container">
+        <div class="card-project reveal">
+            <div class="card-image">
+                <img src="https://images.unsplash.com/photo-1556742044-3c52d6e88c62?q=80&w=1000" alt="NexusPDV">
+                <div class="card-overlay"></div>
+            </div>
+            <div class="card-body">
+                <span class="project-category">Enterprise SaaS / PDV</span>
+                <h3 class="project-title">NexusPDV</h3>
+                <p class="project-description">
+                    Ecossistema de PDV multi-tenant privado. Backend Spring Boot, infra Railway e interface Desktop JavaFX.
+                </p>
+                <div class="project-footer">
+                    <div class="tech-stack">
+                        <i class="fab fa-java" title="Java"></i>
+                        <i class="fas fa-leaf" title="Spring Boot"></i>
+                        <i class="fas fa-database" title="PostgreSQL"></i>
+                    </div>
+                    <a href="https://wa.me/5583998632702?text=Olá%20John,%20gostaria%20de%20solicitar%20uma%20demonstração%20do%20NexusPDV."
+                       target="_blank" class="btn-demo-request">
+                        SOLICITAR DEMO <i class="fas fa-play"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-project reveal">
+            <div class="card-image">
+                <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=1000" alt="Church Praise">
+                <div class="card-overlay"></div>
+            </div>
+            <div class="card-body">
+                <span class="project-category">Performance / Music Tech</span>
+                <h3 class="project-title">Church Praise</h3>
+                <p class="project-description">
+                    Solução aberta para músicos profissionais com algoritmo de transposição em tempo real.
+                </p>
+                <div class="project-footer">
+                    <div class="tech-stack">
+                        <i class="fab fa-js" title="JavaScript"></i>
+                        <i class="fas fa-music" title="Music Logic"></i>
+                        <i class="fas fa-bolt" title="Performance"></i>
+                    </div>
+                    <a href="https://github.com/Johnalexdevbr" target="_blank" class="btn-circle"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-wrap" id="sobre">
+    <div class="skills-section reveal">
+        <div class="skills-content">
+            <span class="project-category" style="color: var(--accent-cyan);">Sobre & Carreira</span>
+            <h2 style="font-size: 2.5rem; margin-top: 1rem;">Fundamentação Acadêmica <br> com Visão de Mercado.</h2>
+            <p style="color: var(--text-gray); margin-top: 2rem; font-weight: 300;">
+                Atualmente cursando Análise e Desenvolvimento de Sistemas, sou um entusiasta da tecnologia que acredita no poder de transformar lógica em ferramentas reais. Meu foco está em entender problemas do dia a dia e construir sistemas desktop e backends que tragam organização e agilidade para quem os utiliza. Para mim, programar é um aprendizado contínuo onde cada linha de código deve servir a um propósito prático.
+            </p>
+        </div>
+
+        <div class="skills-bars">
+            <div class="skill-item">
+                <div class="skill-info"><span>BACKEND (SPRING BOOT / RAILWAY)</span><span>95%</span></div>
+                <div class="skill-bar"><div class="skill-progress" data-width="95%"></div></div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-info"><span>DESKTOP UI (JAVAFX / SCENE BUILDER)</span><span>92%</span></div>
+                <div class="skill-bar"><div class="skill-progress" data-width="92%"></div></div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-info"><span>DATABASE (POSTGRESQL / TENANCY)</span><span>88%</span></div>
+                <div class="skill-bar"><div class="skill-progress" data-width="88%"></div></div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-info"><span>ADS (CURSANDO)</span><span>60%</span></div>
+                <div class="skill-bar"><div class="skill-progress" data-width="60%"></div></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer id="contato">
+    <div class="container">
+        <div class="footer-cta reveal">
+            <span class="project-category">Vamos elevar seu projeto?</span>
+            <h2 class="gradient-text">TECNOLOGIA QUE IMPULSIONA NEGÓCIOS.</h2>
+            <a href="https://wa.me/5583998632702?text=Olá%20John,%20vi%20seu%20portfólio.%20Gostaria%20de%20falar%20sobre%20soluções%20." target="_blank" class="btn-nexus">
+                FALAR COMIGO <i class="fab fa-whatsapp"></i>
+            </a>
+        </div>
+
+        <div class="social-icons">
+            <a href="https://linkedin.com/in/john-alex-" target="_blank" class="icon-box"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://github.com/Johnalexdevbr" target="_blank" class="icon-box"><i class="fab fa-github"></i></a>
+            <a href="mailto:johnlex202020@icloud.com" class="icon-box"><i class="far fa-envelope"></i></a>
+        </div>
+
+        <div class="copyright-text">
+            &copy; 2026 NEXUS TECNOLOGIA • DESENVOLVIDO POR JOHN ÁLEX • ADS STUDENT
+        </div>
+    </div>
+</footer>
+
+<script>
+    //  GERAR CAMPO DE ESTRELAS
+    const starField = document.getElementById('star-field');
+    const starCount = 150;
+    for (let i = 0; i < starCount; i++) {
+        const star = document.createElement('div');
+        star.className = 'star';
+        const size = Math.random() * 3;
+        star.style.width = size + 'px';
+        star.style.height = size + 'px';
+        star.style.top = Math.random() * 100 + '%';
+        star.style.left = Math.random() * 100 + '%';
+        star.style.setProperty('--duration', (Math.random() * 3 + 2) + 's');
+        starField.appendChild(star);
+    }
+
+    // LOGICA DE REVELAÇÃO
+    function reveal() {
+        var reveals = document.querySelectorAll(".reveal");
+        for (var i = 0; i < reveals.length; i++) {
+            var windowHeight = window.innerHeight;
+            var elementTop = reveals[i].getBoundingClientRect().top;
+            if (elementTop < windowHeight - 100) {
+                reveals[i].classList.add("active");
+                let progressBars = reveals[i].querySelectorAll('.skill-progress');
+                progressBars.forEach(bar => { bar.style.width = bar.getAttribute('data-width'); });
+            }
+        }
+    }
+    window.addEventListener("scroll", reveal);
+    reveal();
+
+    //  PARALLAX NO HERO
+    document.addEventListener('mousemove', (e) => {
+        const moveX = (e.clientX - window.innerWidth / 2) * 0.01;
+        const moveY = (e.clientY - window.innerHeight / 2) * 0.01;
+        const heroInner = document.querySelector('.hero-inner');
+        if(heroInner) {
+            heroInner.style.transform = `translate(${moveX}px, ${moveY}px)`;
+        }
+    });
+</script>
+</body>
+</html>
